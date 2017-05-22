@@ -1,0 +1,21 @@
+<nav>
+  <ul>
+    <li *ngFor="let item of menuService.items">
+      <fw-menu-item [item]="item"
+                    [ngClass]="{'vertical-menu': menuService.isVertical && screenService.isLarge(), 
+                               'vertical-menu-small': menuService.isVertical && !screenService.isLarge()}"
+                    [parentIsPopup]="false">
+      </fw-menu-item>
+    </li>
+  </ul>
+</nav>
+
+<button 
+      *ngIf="!menuService.showingLeftSideMenu"
+      class="btn btn-sm"
+      tooltip="{{tipMessage}}" placement="{{location}}"
+      [ngClass]="{'horizontal': !menuService.isVertical }"
+      (click)="menuService.toggleMenuOrientation()">
+      <span *ngIf="menuService.isVertical" class="glyphicon glyphicon-menu-up"></span>
+      <span *ngIf="!menuService.isVertical" class="glyphicon glyphicon-menu-left"></span>      
+</button>

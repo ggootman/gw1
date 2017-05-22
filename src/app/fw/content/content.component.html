@@ -1,0 +1,8 @@
+<fw-menu 
+    *ngIf="menuService.isVertical && screenService.isLarge() || menuService.showingLeftSideMenu && !screenService.isLarge()"
+    [ngClass]="{'vertical-menu': screenService.isLarge(), 'vertical-menu-small': !screenService.isLarge()}">
+</fw-menu>
+
+<div class="body-style">
+    <router-outlet></router-outlet>
+</div>

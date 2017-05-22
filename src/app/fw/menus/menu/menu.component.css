@@ -1,0 +1,44 @@
+:host {
+    display: flex; 
+    align-items: flex-end; 
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+:host(.vertical-menu) {
+    display: inline-block;
+    max-width: 215px;
+    min-width: 175px;
+    padding-left: 4px;
+    flex-grow: 0;
+    background-color: #555;
+    overflow: auto;
+}
+
+:host(.vertical-menu-small) {
+    display: inline-block;
+    max-width: 165px;
+    min-width: 165px;
+    padding-left: 4px;
+    flex-grow: 0;
+    background-color: #555;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+button {
+    margin-top: 20px;
+}
+button.horizontal {
+    margin-left: 20px;
+    margin-bottom: 2px;
+}

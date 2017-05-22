@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<!--<head>
+    <link rel="stylesheet" href="./styles.css">
+</head>-->
+
+<body>
+
+    <h1> {{pageTitle}}                  </h1>
+    <div class='panel panel-primary' style="background-color:white;color:black;padding:20px;">
+        <div class='panel-heading'>
+            <small id="warning" *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</small>
+        </div>
+        <form #form='ngForm' novalidate>
+            <br>
+            <div class="form-group">
+                <!--<legend>Enter as much or as little information and click search to see the results.:</legend>-->
+                <fieldset>
+                    <div class="column" [class.has-error]='id.invalid && id.dirty'>
+                        <label>
+                            Station Id
+
+                            <input id="id" #id='ngModel' type="text" class="form-control" name="id" [(ngModel)]="stationIdInput" required />
+                        </label>
+
+                    </div>
+                    <br>
+
+                    <div class="form-group" [class.has-error]='id.invalid && id.dirty'>
+                        <label>
+                            Station Name
+
+                            <input id="id" #id='ngModel' type="text" class="form-control" name="stationName" [(ngModel)]="stationNameInput" />
+                        </label>
+
+                    </div>
+                    <div class="form-group" [class.has-error]='stationType.invalid && stationType.dirty'>
+                        <label>
+                            Station Type
+                            <select id="stationType" class="form-control" #stationType name="stationType" [(ngModel)]="stationTypeInput" required>
+                                <option *ngFor="let st of stationTypeList" [selected]="st.stationType == 'Well'">
+                                    {{st.stationType}}
+                                </option>
+                            </select>
+                            <p *ngIf="stationType.invalid && stationType.dirty" class="text-danger">Station Type is required.</p>
+                        </label>
+                    </div>
+
+                  
+
+                    <div class="form-group" [class.has-error]='stationType.invalid && stationType.dirty'>
+                        <label>
+                            Station Purpose
+                            <select id="stationPurpose" class="form-control" #stationType name="stationPurpose" [(ngModel)]="stationPurposeInput" required>
+                                <option *ngFor="let spl of stationPurposeList" [selected]="spl.stationPurpose == 'Monitoring'">
+                                    {{spl.stationPurpose}}
+                                </option>
+                            </select>
+                         
+                        </label>
+                    </div>
+
+                    <div class="form-group" [class.has-error]='analyteGroup.invalid && stationType.dirty'>
+                        <label>
+                            Analyte Group
+                            <select id="analyteGroup" class="form-control" #analyteGroup name="analyteGroupInput" [(ngModel)]="analyteGroupInput" required>
+                                <option *ngFor="let ag of analyteGroupList">
+                                    {{ag.analyteGroupName}}
+                                </option>
+                            </select>
+
+                        </label>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary" (click)='getData()'>Submit</button>
+                    <button type="submit" class="btn btn-primary" (click)='resetForm()'>Reset</button>
+
+                    <div class='table-responsive'>
+                        <table class='table' *ngIf='showTable'>
+                            <thead>
+                                <tr>
+                                    <th>Station Id</th>
+                                    <th>Station Name</th>
+                                    <th>Station Purpose</th>
+                                    <th>Station Type</th>
+                                    <th>County</th>
+                                    <th>Events</th>
+
+                                    <th>CWI</th>
+                                    <th>Geo Area Types</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let va of valueApi">
+                                    <td>{{va.stationId}}</td>
+                                    <td>{{va.stationName}}</td>
+                                    <td>{{va.stationPurpose}}</td>
+                                    <td>{{va.stationType}}</td>
+                                    <td>{{va.countyList}}</td>
+                                    <td>{{va.sampleCount}}</td>
+
+                                    <td>{{va.cwiUrl}}</td>
+                                    <td>{{va.vgeoAreaTypes}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+PRODID:-//ON24 Corporation//ON24 Corporation
+VERSION:2.0
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20170509T145000Z
+DTEND:20170509T155000Z
+LOCATION: Webcast
+TRANSP:OPAQUE
+UID:96699710820170509T140900Z
+DESCRIPTION:Thank you for registering for Kendo UI for Angular Launch: Native, Fast, Beautiful. \n\nLIVE WEBCAST DATE:  May 09, 2017 \nLIVE WEBCAST TIME:  11:00 AM EDT \n\nUse the link below to enter the webcast up to 15 minutes before the start. \n\nWEBCAST LINK:  http://event.on24.com/wcc/r/1398816/FE690179A3121B18498E3138C271550F \nEMAIL:  gregory.gootman@state.mn.us \n\nSYSTEM TEST:  Test your computer to make sure you meet the minimum technical requirements. \nTest Your System: http://event.on24.com/utils/test/testYourSystem.html?eventid=1398816&sessionid=1&key=FE690179A3121B18498E3138C271550F&checkBrowser=true&checkOS=true&checkBandwidth=true&checkCookie=true&ngwebcast=true&ngwebcast=true \n\nThank you and enjoy the webcast!
+SUMMARY:Kendo UI for Angular Launch: Native, Fast, Beautiful
+PRIORITY:5
+CLASS:PUBLIC
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+title:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
