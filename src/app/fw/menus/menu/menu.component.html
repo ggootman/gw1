@@ -13,7 +13,7 @@
 <button 
       *ngIf="!menuService.showingLeftSideMenu"
       class="btn btn-sm"
-      tooltip="{{tipMessage}}" placement="{{location}}"
+
       [ngClass]="{'horizontal': !menuService.isVertical }"
       (click)="menuService.toggleMenuOrientation()">
       <span *ngIf="menuService.isVertical" class="glyphicon glyphicon-menu-up"></span>

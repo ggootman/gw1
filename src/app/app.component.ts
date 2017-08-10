@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 import { FrameworkConfigService, FrameworkConfigSettings } from 'app/fw/services/framework-config.service';
 import { MenuService } from 'app/fw/services/menu.service';
 import { initialMenuItems } from './app.menu';
+
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,8 +12,8 @@ import { initialMenuItems } from './app.menu';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor (private frameworkConfigService: FrameworkConfigService,
+export class AppComponent implements AfterViewInit {
+  constructor (private frameworkConfigService: FrameworkConfigService, private router: Router,
                private menuService: MenuService) {
 
     let config: FrameworkConfigSettings = {
@@ -30,5 +32,10 @@ export class AppComponent {
     frameworkConfigService.configure(config);
 
     menuService.items = initialMenuItems;
+    frameworkConfigService.displayName = 'MPCA';
   }
+
+   ngAfterViewInit() {
+        this.router.navigate(['/stations']);
+    }
 }

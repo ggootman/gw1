@@ -23,6 +23,7 @@ export class FrameworkConfigService {
     showUserControls = true;
     showStatusBar = true;
     menuItemUpperCase = false;
+    displayName = '';
     showStatusBarBreakpoint = 0;
     socialIcons = new Array<IconFiles>();
 
