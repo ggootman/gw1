@@ -14,7 +14,11 @@ import { appRoutes } from './app.routing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
  
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
- 
+import { UserService } from "app/services/user.service";
+import { UserApi } from "app/fw/users/user-api";
+import { RegisterUserApi } from "app/fw/users/registration-api";
+import { UserRegistrationService } from "app/services/user.registration.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +36,10 @@ import { AuthenticatedUserComponent } from './authenticated-user/authenticated-u
     FwModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    UserService,UserRegistrationService,
+    {provide: UserApi, useExisting: UserService },
+     {provide: RegisterUserApi, useExisting:  UserRegistrationService}  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
