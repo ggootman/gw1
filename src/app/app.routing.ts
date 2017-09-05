@@ -7,14 +7,14 @@ import { HelpsComponent } from 'app/helps/helps.component';
 import { SettingsComponent } from 'app/settings/settings.component';
 import { SignInComponent } from "app/fw/users/sign-in/sign-in.component";
 import { RegisterUserComponent } from "app/fw/users/register-user/register-user.component";
+import { AuthGuard } from "app/services/auth-guard.service";
 
 
 
 export const appRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
     { path: 'register', component: RegisterUserComponent },
-  { path: 'authenticated', component: AuthenticatedUserComponent, 
-  //canActivate: [AuthGuard],
+  { path: 'authenticated', component: AuthenticatedUserComponent, canActivate: [AuthGuard],
   //  children: [
   //    { path: '', canActivateChild: [AuthGuard],
         children: [

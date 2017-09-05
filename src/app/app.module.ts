@@ -18,6 +18,7 @@ import { UserService } from "app/services/user.service";
 import { UserApi } from "app/fw/users/user-api";
 import { RegisterUserApi } from "app/fw/users/registration-api";
 import { UserRegistrationService } from "app/services/user.registration.service";
+import { AuthGuard } from "app/services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { UserRegistrationService } from "app/services/user.registration.service"
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    UserService,UserRegistrationService,
+    UserService,UserRegistrationService,AuthGuard,
     {provide: UserApi, useExisting: UserService },
      {provide: RegisterUserApi, useExisting:  UserRegistrationService}  ],
   bootstrap: [AppComponent]
